@@ -1,2 +1,508 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-primary);
+}
 
+:root {
+  /* 1. Latar Belakang, Card & Garis Tepi (Surfaces & Borders) */
+  --bg-page: #f0f4f8;         /* Background Body / Halaman */
+  --bg-card: #ffffff;         /* Background Kotak Form & List */
+  --bg-muted: #f8fafc;        /* Background Input, Item & Tab Pasif */
+  --border: #cbd5e1;          /* Border / Garis Tepi Card & Input */
+
+  /* 2. Tipografi / Warna Teks (Typography) */
+  --text-black: #0f172a;      /* Teks Utama & Judul */
+  --text-grey: #64748b;       /* Teks Sekunder, Tanggal & Placeholder */
+  --text-white: #ffffff;      /* Teks Putih di Atas Header/Tombol */
+
+  /* 3. Brand Utama & Header (Primary & Header) */
+  --header-start: #0f766e;    /* Gradasi Header Kiri */
+  --header-end: #115e59;      /* Gradasi Header Kanan */
+  --primary: #0d9488;         /* Tombol Submit, Checkbox & Tab Aktif */
+  --primary-hover: #006961;   /* Warna Hover Tombol Submit */
+  --primary-soft: #ccfbf1;    /* Highlight / Latar Aksen Lembut */
+
+  /* 4. Warna Status & Badge Prioritas (Pasangan Teks Solid + Background Soft) */
+  --danger: #e11d48;          /* Teks/Border High, Overdue & Delete */
+  --danger-soft: #ffe4e6;     /* Bg Badge High & Tombol Delete */
+  --warning: #d97706;         /* Teks/Border Prioritas Medium */
+  --warning-soft: #fef3c7;    /* Bg Badge Prioritas Medium */
+  --info: #0284c7;            /* Teks/Border Prioritas Low */
+  --info-soft: #e0f2fe;       /* Bg Badge Prioritas Low */
+  --success: #16a34a;         /* Teks/Border Status Done (Selesai) */
+  --success-soft: #dcfce7;    /* Bg Badge Status Done (Selesai) */
+
+  /* Font Utama */
+  --font-primary: 'Lato', sans-serif;
+}
+
+/* TYPOGRAPHY UTILITY CLASSES*/
+.heading-1 {
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.heading-2 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.body-medium {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.body-small {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+/* BASE & MOBILE-FIRST LAYOUT*/
+body {
+    min-height: 100vh;
+    background-color: var(--bg-page);
+    padding: 16px 12px;
+    color: var(--text-black);
+}
+
+.app {
+    width: 100%;
+    max-width: 1040px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-page);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+
+/* HEADER: PROFILE & TIME*/
+.profile-time {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    background-image: linear-gradient(135deg, var(--header-start), var(--header-end));
+    padding: 16px 20px;
+    color: var(--text-white);
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.profile-picture {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    object-fit: cover;
+    background-color: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.profile-name {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.profile-name-head {
+    color: var(--text-white);
+}
+
+.profile-name-role {
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.time {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+}
+
+.time-title {
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 12px;
+}
+
+#date {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-white);
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 4px 10px;
+    border-radius: 999px;
+}
+
+/* MAIN CONTAINER (MOBILE 1 KOLOM)*/
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px;
+    background-color: var(--bg-page);
+    align-items: start;
+}
+
+/* FORM INPUT TUGAS (#todo)*/
+#todo {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background-color: var(--bg-card);
+    padding: 18px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+}
+
+.todo-title {
+    color: var(--text-black);
+    margin-bottom: 2px;
+}
+
+.todo-desc-container,
+.todo-set-level-container,
+.todo-set-date-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+}
+
+.todo-set {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+#todo-input,
+#todo-set-priority,
+#todo-set-date {
+    width: 100%;
+    background-color: var(--bg-muted);
+    color: var(--text-black);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 13px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#todo-input {
+    resize: vertical;
+    min-height: 76px;
+}
+
+#todo-input::placeholder {
+    color: var(--text-grey);
+}
+
+#todo-input:focus,
+#todo-set-priority:focus,
+#todo-set-date:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-soft);
+}
+
+#btn-submit-task {
+    width: 100%;
+    padding: 11px 16px;
+    background-color: var(--primary);
+    color: var(--text-white);
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+#btn-submit-task:hover {
+    background-color: var(--primary-hover);
+}
+
+#btn-submit-task:active {
+    transform: scale(0.99);
+}
+
+/* DAFTAR TUGAS & FILTER (.task-list)*/
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background-color: var(--bg-card);
+    padding: 18px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+}
+
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.filter-btn {
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background-color: var(--bg-muted);
+    color: var(--text-grey);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.filter-btn.active {
+    background-color: var(--primary);
+    color: var(--text-white);
+    border-color: var(--primary);
+    font-weight: 700;
+}
+
+#clear-all {
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--danger);
+    background-color: var(--danger-soft);
+    color: var(--danger);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#clear-all:hover {
+    background-color: var(--danger);
+    color: var(--text-white);
+}
+
+/* ITEM TUGAS DINAMIS (#todos-container) coding app.js*/
+#todos-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-height: 420px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.todo-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.todo-group-title {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--primary);
+}
+
+.todo-group-title.title-overdue {
+    color: var(--danger);
+}
+
+.todo-group-title.title-done {
+    color: var(--success);
+}
+
+.todo-list-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.todo-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 10px;
+    background-color: var(--bg-muted);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--info);
+    transition: background-color 0.2s ease;
+}
+
+/* Garis warna di sisi kiri kartu berdasarkan status/prioritas */
+.todo-item.priority-low {
+    border-left-color: var(--info);
+}
+
+.todo-item.priority-medium {
+    border-left-color: var(--warning);
+}
+
+.todo-item.priority-high,
+.todo-item.is-overdue {
+    border-left-color: var(--danger);
+}
+
+.todo-item.is-done {
+    border-left-color: var(--success);
+}
+
+.todo-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    flex: 1;
+    cursor: pointer;
+}
+
+.todo-checkbox {
+    margin-top: 2px;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--primary);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.todo-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.todo-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-black);
+    word-break: break-word;
+}
+
+.todo-item.is-done .todo-text {
+    text-decoration: line-through;
+    color: var(--text-grey);
+    opacity: 0.75;
+}
+
+.todo-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Badge Prioritas & Status */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.badge-high {
+    background-color: var(--danger-soft);
+    color: var(--danger);
+    border: 1px solid var(--danger);
+}
+
+.badge-medium {
+    background-color: var(--warning-soft);
+    color: var(--warning);
+    border: 1px solid var(--warning);
+}
+
+.badge-low {
+    background-color: var(--info-soft);
+    color: var(--info);
+    border: 1px solid var(--info);
+}
+
+.badge-overdue {
+    background-color: var(--danger);
+    color: var(--text-white);
+}
+
+.badge-done {
+    background-color: var(--success-soft);
+    color: var(--success);
+}
+
+.todo-date {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-grey);
+}
+
+.btn-delete-item {
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: none;
+    background-color: var(--danger-soft);
+    color: var(--danger);
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.btn-delete-item:hover {
+    background-color: var(--danger);
+    color: var(--text-white);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 28px 12px;
+    font-size: 13px;
+    color: var(--text-grey);
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+    background-color: var(--bg-muted);
+}
+
+/* RESPONSIVE DESKTOP */
+@media (min-width: 768px) {
+    body {
+        padding: 32px 20px;
+    }
+
+    .main-container {
+        grid-template-columns: 5fr 7fr;
+        gap: 20px;
+        padding: 20px;
+    }
+}

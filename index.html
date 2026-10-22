@@ -12,50 +12,53 @@
             <div class="profile">
                 <img class="profile-picture" src="./assets/profile.png" alt="Dummy Profil">
                 <div class="profile-name">
-                    <span class="">M. Zainul Arifin</span>
-                    <span>Frontend Developer • Divisi IT</span>
+                    <span class="profile-name-head heading-2">M. Zainul Arifin</span>
+                    <span class="profile-name-role body-small">Frontend Developer • Divisi IT</span>
                 </div>
             </div>
             <div class="time">
-                <span class="time-title">Waktu saat ini</span>
+                <span class="time-title body-medium">Waktu saat ini</span>
                 <p id="date"></p>
             </div>
         </header>
-        <form id="todo">
-            <h1 class="todo-title">Buat Tugas Baru</h1>
-            <div class="todo-desc-container">
-                <label for="todo-input">Deskripsi Tugas</label>
-                <textarea name="task" id="todo-input" rows="3" placeholder="Tulis agenda pekerjaan hari ini..." required></textarea>
-            </div>
-            <div class="todo-set">
-                <div class="todo-set-level-container">
-                    <label for="todo-set-priority">Level Prioritas</label>
-                    <select name="priority" id="todo-set-priority" required>
-                        <option value="low">Low</option>
-                        <option value="medium" selected>Medium</option>
-                        <option value="high">High</option>
-                    </select>
+        <main class="main-container">
+            <form id="todo">
+                <h1 class="todo-title heading-1">Buat Tugas Baru</h1>
+                <div class="todo-desc-container">
+                    <label class="body-medium" for="todo-input">Deskripsi Tugas</label>
+                    <textarea name="task" id="todo-input" rows="3" placeholder="Tulis agenda pekerjaan hari ini..." required></textarea>
                 </div>
-                <div class="todo-set-date-container">
-                    <label for="todo-set-date">Target Tanggal</label>
-                    <input type="date" name="date" id="todo-set-date" required>
+                <div class="todo-set">
+                    <div class="todo-set-level-container">
+                        <label class="body-medium" for="todo-set-priority">Level Prioritas</label>
+                        <select class="body-medium"  name="priority" id="todo-set-priority" required>
+                            <option class="body-small"  value="low">Low</option>
+                            <option class="body-small"  value="medium" selected>Medium</option>
+                            <option class="body-small"  value="high">High</option>
+                        </select>
+                    </div>
+                    <div class="todo-set-date-container">
+                        <label class="body-medium" for="todo-set-date">Target Tanggal</label>
+                        <input class="body-medium" type="date" name="date" id="todo-set-date" required>
+                    </div>
                 </div>
-            </div>
-            <button id="btn-submit-task" type="submit">+ Tambah ke To Do List</button>
-        </form>
-        <section class="task-list">
-            <div class="filter-container">
-                <div class="filters">
-                    <button type="button" class="filter-btn active" data-filter="all">All</button>
-                    <button type="button" class="filter-btn" data-filter="active">To Do</button>
-                    <button type="button" class="filter-btn" data-filter="done">Done</button>
-                    <button type="button" class="filter-btn" data-filter="overdue">Overdue</button>
+                <button class="body-medium" id="btn-submit-task" type="submit">+ Tambah ke To Do List</button>
+            </form>
+            <section class="task-list">
+                <div class="filter-container">
+                    <div class="filters">
+                        <button type="button" class="filter-btn active body-medium" data-filter="all">All</button>
+                        <button type="button" class="filter-btn body-medium" data-filter="active">To Do</button>
+                        <button type="button" class="filter-btn body-medium" data-filter="done">Done</button>
+                        <button type="button" class="filter-btn body-medium" data-filter="overdue">Overdue</button>
+                    </div>
+                    <button class="body-medium" type="button" id="clear-all">Delete All</button>
                 </div>
-                <button type="button" id="clear-all">Delete All</button>
-            </div>
-            <div id="todos-container">    
-            </div>
-        </section>
+                <div id="todos-container">    
+                </div>
+            </section>
+        </main>
+        
     </div>
 
     <script src="./js/app.js"></script>
