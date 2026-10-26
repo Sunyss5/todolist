@@ -177,7 +177,7 @@ function renderTodos() {
                 <span class="todo-author">👤 ${todo.name} (${todo.position})</span>
                 <span class="badge badge-${todo.priority}">${todo.priority}</span>
                 <span class="todo-date">📅 ${todo.deadline}</span>
-                ${isOverdue ? '<span class="badge badge-overdue">⚠️ Late / Overdue</span>' : ""}
+                ${isOverdue ? '<span class="badge badge-overdue">⚠️ Overdue</span>' : ""}
                 ${todo.completed ? '<span class="badge badge-done">✓ Done</span>' : ""}
               </div>
             </div>
