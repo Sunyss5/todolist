@@ -12,8 +12,8 @@
             <div class="profile">
                 <img class="profile-picture" src="./assets/profile.png" alt="Dummy Profil">
                 <div class="profile-name">
-                    <span class="profile-name-head heading-2">M. Zainul Arifin</span>
-                    <span class="profile-name-role body-small">Frontend Developer • Divisi IT</span>
+                    <span id="profile-name" class="profile-name-head heading-2">M. Zainul Arifin</span>
+                    <span id="profile-role" class="profile-name-role body-small">Frontend Developer • Divisi IT</span>
                 </div>
             </div>
             <div class="time">
@@ -24,6 +24,16 @@
         <main class="main-container">
             <form id="todo">
                 <h1 class="todo-title heading-1">Buat Tugas Baru</h1>
+                <div class="todo-user-set">
+                    <div class="todo-name-container">
+                        <label class="body-medium" for="todo-name">Nama Karyawan</label>
+                        <input class="body-medium" type="text" name="name" id="todo-name" placeholder="Masukkan nama..." required>
+                    </div>
+                    <div class="todo-position-container">
+                        <label class="body-medium" for="todo-position">Jabatan (Position)</label>
+                        <input class="body-medium" type="text" name="position" id="todo-position" placeholder="Masukkan jabatan..." required>
+                    </div>
+                </div>
                 <div class="todo-desc-container">
                     <label class="body-medium" for="todo-input">Deskripsi Tugas</label>
                     <textarea name="task" id="todo-input" rows="3" placeholder="Tulis agenda pekerjaan hari ini..." required></textarea>
@@ -31,10 +41,10 @@
                 <div class="todo-set">
                     <div class="todo-set-level-container">
                         <label class="body-medium" for="todo-set-priority">Level Prioritas</label>
-                        <select class="body-medium"  name="priority" id="todo-set-priority" required>
-                            <option class="body-small"  value="low">Low</option>
-                            <option class="body-small"  value="medium" selected>Medium</option>
-                            <option class="body-small"  value="high">High</option>
+                        <select class="body-medium" name="priority" id="todo-set-priority" required>
+                            <option class="body-small" value="low">Low</option>
+                            <option class="body-small" value="medium" selected>Medium</option>
+                            <option class="body-small" value="high">High</option>
                         </select>
                     </div>
                     <div class="todo-set-date-container">
@@ -52,10 +62,33 @@
                         <button type="button" class="filter-btn body-medium" data-filter="done">Done</button>
                         <button type="button" class="filter-btn body-medium" data-filter="overdue">Overdue</button>
                     </div>
-                    <button class="body-medium" type="button" id="clear-all">Delete All</button>
+                    <span id="items-left" class="body-medium">0 Items Left</span>
+                    <button class="body-medium" type="button" id="clear-done">Clear Done</button>
                 </div>
-                <div id="todos-container">    
+                <div id="todos-container">
+                    <!-- 1. Kelompok Kategori (To Do / Overdue / Done) -->
+                    <!-- <div class="todo-group">
+                        <h3 class="todo-group-title">📌 To Do (Harus Dikerjakan) (1)</h3>
+                        <ul class="todo-list-items"> -->
+                        <!-- 2. Satu Kartu Tugas -->
+                        <!-- <li class="todo-item">
+                            <label class="todo-label">
+                            <input type="checkbox" class="todo-checkbox" data-id="1729580000" />
+                            <div class="todo-content">
+                                <p class="todo-text">Menyelesaikan laporan mingguan</p>
+                                <div class="todo-meta">
+                                <span class="todo-author">👤 M. Zainul Arifin (Frontend Developer)</span>
+                                <span class="badge badge-high">High</span>
+                                <span class="todo-date">📅 Kam, 22 Okt 2026</span>
+                                </div>
+                            </div>
+                            </label>
+                            <button type="button" class="btn-delete-item" data-id="1729580000">✕</button>
+                        </li>
+                        </ul>
+                    </div>  -->
                 </div>
+                <div class="empty-state">Belum ada daftar tugas. Silakan tambahkan tugas baru.</div>
             </section>
         </main>
         

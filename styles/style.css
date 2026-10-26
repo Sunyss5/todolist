@@ -176,6 +176,8 @@ body {
     margin-bottom: 2px;
 }
 
+.todo-name-container,
+.todo-position-container,
 .todo-desc-container,
 .todo-set-level-container,
 .todo-set-date-container {
@@ -185,12 +187,15 @@ body {
     width: 100%;
 }
 
+.todo-user-set,
 .todo-set {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
 }
 
+#todo-name,
+#todo-position,
 #todo-input,
 #todo-set-priority,
 #todo-set-date {
@@ -209,10 +214,14 @@ body {
     min-height: 76px;
 }
 
+#todo-name::placeholder,
+#todo-position::placeholder,
 #todo-input::placeholder {
     color: var(--text-grey);
 }
 
+#todo-name:focus,
+#todo-position:focus,
 #todo-input:focus,
 #todo-set-priority:focus,
 #todo-set-date:focus {
@@ -291,7 +300,11 @@ body {
     font-weight: 700;
 }
 
-#clear-all {
+#items-left{
+    color: var(--text-grey);
+}
+
+#clear-done {
     padding: 6px 12px;
     border-radius: 8px;
     border: 1px solid var(--danger);
@@ -302,7 +315,7 @@ body {
     transition: all 0.2s ease;
 }
 
-#clear-all:hover {
+#clear-done:hover {
     background-color: var(--danger);
     color: var(--text-white);
 }
@@ -355,26 +368,7 @@ body {
     border-radius: 10px;
     background-color: var(--bg-muted);
     border: 1px solid var(--border);
-    border-left: 4px solid var(--info);
     transition: background-color 0.2s ease;
-}
-
-/* Garis warna di sisi kiri kartu berdasarkan status/prioritas */
-.todo-item.priority-low {
-    border-left-color: var(--info);
-}
-
-.todo-item.priority-medium {
-    border-left-color: var(--warning);
-}
-
-.todo-item.priority-high,
-.todo-item.is-overdue {
-    border-left-color: var(--danger);
-}
-
-.todo-item.is-done {
-    border-left-color: var(--success);
 }
 
 .todo-label {
@@ -460,7 +454,8 @@ body {
     color: var(--success);
 }
 
-.todo-date {
+.todo-date,
+.todo-author {
     font-size: 12px;
     font-weight: 500;
     color: var(--text-grey);
@@ -492,6 +487,10 @@ body {
     border: 1px dashed var(--border);
     border-radius: 8px;
     background-color: var(--bg-muted);
+}
+
+.hidden{
+    display: none;
 }
 
 /* RESPONSIVE DESKTOP */
